@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" type="text/css" href="purchase_style.css" />
+        <!-- Link to Google Fonts for Material Symbols -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+         <title>Template</title>
+        <title>Template</title>
+    </head>
+    <body>
+        <!-- Sidebar section -->
+        <section class="sidebar">
+            <div class="nav-section">
+                <ul>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                dashboard
+                            </span>
+                            <span class="nav-item">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                inventory_2
+                            </span>
+                            <span class="nav-item">Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                shopping_cart
+                            </span>
+                            <span class="nav-item">Sale</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                receipt
+                            </span>
+                            <span class="nav-item">Purchase</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                            <span class="nav-item">Supplier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                            <span class="nav-item">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- User logout section -->
+            <div class="user-logout">
+                <div class="user">
+                    <span class="material-symbols-outlined logout-icon">
+                        move_item
+                    </span>
+
+                    <div class="user-details">
+                        <div>
+                            <p class="user-name">Name</p>
+                            <p class="user-role">Role</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined" href> person </span>
+                </div>
+            </div>
+        </section>
+        <!-- Main content area -->
+        <main class="main-content">
+
+            <div class="popup">
+  
+                <div class="modal-content animate">
+
+                  <div class="pop-exit">
+                    <span class="close" title="Close Modal">&times;</span>
+                  </div>
+
+                  <div class="pop-head">
+                    <h1>Add Item</h1>
+                  </div>
+              
+                  <div class="pop-container">
+                    <h1>Item Name:<h1>
+                    <input type="text" placeholder="Enter Item Name" name="itemname" id="itemname" required>
+              
+                    <h1>Item ID:<h1>
+                    <input type="text" placeholder="Enter Item ID" name="itemid" id="itemid" required>
+
+                    <h1>Price:<h1>
+                    <input type="text" placeholder="Enter Price" name="price" id="price" required>
+                    
+                    <h1>Quantity:<h1>
+                    <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" required>
+
+                    <h1>Amount:<h1>
+                    <input type="text" placeholder="Enter Amount" name="amount" id="amount" required>
+    
+                    <div class="pop-btns">
+                        <button class="pop-save">Save</button>
+                    </div>
+                  </div>
+              
+                </div>
+            </div>
+
+
+            <h1>Purchase</h1>
+            <div class="row">
+                <div class="column">
+                  <div id="first" >
+                        <div class = "purchase-order">
+                            <h5 style="font-size:30px">Create Purchase Order</h5>
+                            
+                            
+                        </div>
+                        <div class = "purchase"></div>
+                        <div class="user-purchase">
+                        <div class="row">
+                            <div class="column">
+                            <label for="userInput" >
+                            User:  
+                            </label>
+                            <input type="text" id="userInput" placeholder="Input user name...">
+                            <br>
+                            <label for="purchaseIdInput" >
+                                Purchase ID: 
+                                </label>
+                                <label id="purchaseId">
+                                    <script>
+                                        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                                        const purchaseID = document.getElementById('purchaseId');
+                                        
+                                        function generateString(length) {
+                                            let result = ' ';
+                                            const charactersLength = characters.length;
+                                            for ( let i = 0; i < length; i++ ) {
+                                            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                            }
+
+                                        return result;
+                                        }
+                                        purchaseID.innerHTML = generateString(10);
+                                        
+
+                                    </script>
+                                </label>
+                            <br>
+                            <label for="dateInput" >
+                                Date: 
+                                </label>
+                                <input type="date" id="dateID" placeholder="">
+                            </div>
+                            <div class="column">
+                                <label for="status" >
+                                    Status:  
+                                    </label>
+                                    <input type="text" id="status" placeholder="order status">
+                                    <br>
+                                    <label for="manager" >
+                                        Manager:  
+                                        </label>
+                                        <input type="text" id="manager" placeholder="Input manager name">
+                                        <br>
+                                
+                            </div>
+                        </div>
+                        </div>
+                    <div class="scrollable">
+                    <table id="orderTable">
+                        <thead> 
+                            <tr>
+                                <th>Item </th>
+                                <th>Item ID</th>
+                                <th>Price </th>
+                                <th>Quantity </th>
+                                <th>Amount </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td contenteditable="false">Item1</td>
+                                <td contenteditable="false">A1213</td>
+                                <td contenteditable="false">PHP 10.00</td>
+                                <td contenteditable="false">500</td>
+                                <td contenteditable="false">PHP 5,000.00</td>
+                            </tr>
+                        </tbody> 
+                    </table>
+
+                </div>
+                    
+                    <button id="saveChangesBtn" onclick="saveChanges()" style="display: none;">save</button>
+
+                    <script>
+                    
+                    </script>
+
+                    <!-- add icon here -->
+                    <button class="button-Icon">
+                        <span class="material-symbols-outlined">
+                            add_circle
+                        </span>
+                    </button>
+
+                    <script>
+                        var tableBody = document.querySelector('tbody');
+                        var popup = document.querySelector('.popup');
+                        var inputItemName = document.getElementById('itemname');
+                        var inputItemId = document.getElementById('itemid');
+                        var inputPrice = document.getElementById('price');
+                        var inputQuantity = document.getElementById('quantity');
+                        var inputAmount = document.getElementById('amount');
+
+                    document.querySelector('.pop-exit .close').addEventListener('click', function() {
+                        popupExit = document.querySelector('.pop-exit .close');
+                        popup.style.display = "none"
+                    });
+
+                    document.querySelector('.button-Icon').addEventListener('click', function() {
+                        // Clear the form
+                        inputItemName.value = '';
+                        inputItemId.value = '';
+                        inputPrice.value = '';
+                        inputQuantity.value = '';
+                        inputAmount.value = '';
+                        popup.style.display = 'flex';
+                        if (popup.classList.contains('show')) {
+                            popup.classList.remove('show');
+                            popup.classList.add('hide');
+                        } else {
+                            popup.classList.remove('hide');
+                            popup.classList.add('show');
+                        }
+                    });
+
+                     // Add click event listener to the 'Save' button
+                    document.querySelector('.pop-save').addEventListener('click', function() {
+
+                        // Get form values
+                        const itemName = inputItemName.value;
+                        const itemId = inputItemId.value;
+                        const itemPrice = inputPrice.value;
+                        const itemQuantity = inputQuantity.value;
+                        const itemAmount = inputAmount.value;
+
+                        // Clear the form
+                        inputItemName.value = '';
+                        inputItemId.value = '';
+                        inputPrice.value = '';
+                        inputQuantity.value = '';
+                        inputAmount.value = '';
+
+                        // Close the popup
+                        document.querySelector('.popup').style.display = 'none';
+
+                        const row = tableBody.insertRow(-1);
+                        const cell1 = row.insertCell(0);
+                        const cell2 = row.insertCell(1);
+                        const cell3 = row.insertCell(2);
+                        const cell4 = row.insertCell(3);
+                        const cell5 = row.insertCell(4);
+                        cell1.innerHTML = itemName;
+                        cell2.innerHTML = itemId;
+                        cell3.innerHTML = itemPrice;
+                        cell4.innerHTML = itemQuantity;
+                        cell5.innerHTML = itemAmount;
+
+                    });
+
+                    </script>
+
+                    <!-- total amount (50% of the panel) -->
+                    <div class="total-button">
+                        <div class="column">
+                            <!-- empty space in total amount for comment -->
+                            <label for="comment" >
+                                Comment:  
+                                </label>
+                                <textarea id="comment" placeholder="input comment"></textarea>
+                                <br>
+                        </div>
+                        <div class="column">
+                            <div class="row">
+                                <div class="column">Total Amount:</div>
+                                <div class="total-column"><strong>PHP 5,000.00</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Create order button goes here -->
+                    <div class = "purchase-button">
+
+                        <button class = "button-delete-Item">
+                            Delete Item
+                        </button>
+
+                        <button class = "button-Order">
+                            Create Order
+                        </button>
+                        <script>
+                            // add the created order to the database
+
+                            // delete an item from the selected row in the table
+                        </script>
+                    </div>
+                  </div>
+                </div>
+                <div class="column">
+                  
+                  <div id="first">
+                    <div class = "purchase-history">
+                        <h5 style="font-size:30px; float: left"> <span>Purchase History</span></h5>
+                        <h5 style="font-size:30px; float: right"> <span>MAY 2024</span></h5>
+                    </div>
+                    <div class = "history"> </div>
+                    
+                    <table> 
+                        <tr>
+                            <th>Date </th>
+                            <th>User </th>
+                            <th>Purchase ID </th>
+                            <th>Manager</th>
+                            <th>Status</th>
+                            <th>Amount </th>
+                        </tr>
+                        <tr>
+                            <td>5/10/2024</td>
+                            <td>Hu Tao</td>
+                            <td>2024715</td>
+                            <td>Zhongli</td>
+                            <td>Paid</td>
+                            <td>PHP 10,000.00</td>
+                        </tr>
+
+                    </table>
+                    <div class="total-button">
+                        <div class="column">
+                            <!-- empty space in total amount -->
+                        </div>
+                        <div class="column">
+                            <div class="row">
+                                <div class="column"><bold>Total Sales:</bold></div>
+                                <div class="total-column" ><strong>PHP 10,000.00</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history-button">
+                        <div class="row"> 
+                            <div class="column-history" >
+                            <button class = "button-Back">Back</button></div>
+                            <div class="column-history">
+                            <button class = "button-Delete">Delete Order</button></div>
+                            <div class="column-history" >
+                            <button class = "button-Next">Next</button></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
